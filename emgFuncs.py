@@ -4,7 +4,8 @@
 #
 
 import numpy as np
-import scipy.special as sp
+from scipy.special import erf
+from scipy.special import erfc
 
 
 
@@ -16,8 +17,8 @@ def pnf(x):
 	b = x >= 0
 	p = x
 	m_sqrt2 = np.sqrt(2)
-	p[b] = ( (1 + sp.erf(x[b] / m_sqrt2)) / 2)
-	p[a] = ( (sp.erfc(-x[a] / m_sqrt2)) / 2)
+	p[b] = ( (1 + erf(x[b] / m_sqrt2)) / 2)
+	p[a] = ( (erfc(-x[a] / m_sqrt2)) / 2)
 	return p
 
 
